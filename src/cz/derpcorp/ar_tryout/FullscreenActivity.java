@@ -157,6 +157,16 @@ public class FullscreenActivity extends Activity {
 	View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent motionEvent) {
+			cam = Camera.open();
+			CameraSurface contentView = (CameraSurface)findViewById(R.id.fullscreen_content);
+			try {
+				cam.setPreviewDisplay(contentView.getHolder());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();			
+			}
+			cam.startPreview();
+		
 			if (AUTO_HIDE) {
 				delayedHide(AUTO_HIDE_DELAY_MILLIS);
 			}

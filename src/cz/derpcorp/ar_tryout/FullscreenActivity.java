@@ -4,6 +4,7 @@ import cz.derpcorp.ar_tryout.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -116,6 +117,12 @@ public class FullscreenActivity extends Activity {
 		// while interacting with the UI.
 		findViewById(R.id.dummy_button).setOnTouchListener(
 				mDelayHideTouchListener);
+		
+		//TODO: handle no-camera behavior and exceptions.
+		
+		Camera cam;
+		cam = Camera.open();
+		
 	}
 
 	@Override

@@ -20,6 +20,11 @@ import android.view.View;
  * @see SystemUiHider
  */
 public class FullscreenActivity extends Activity {
+	
+	/**
+	 * constant TAG for Logging
+	 */
+	private static final String TAG = "FulscreenActivity";
 	/**
 	 * Whether or not the system UI should be auto-hidden after
 	 * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.

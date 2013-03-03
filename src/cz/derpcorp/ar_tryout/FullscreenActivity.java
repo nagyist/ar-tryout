@@ -133,8 +133,11 @@ public class FullscreenActivity extends Activity {
 
 		
 	}
+	
 	public void onBackPressed() {
-	    cam.release();
+	    if(cam != null){
+	    	cam.release();
+	    }
 	    finish();
 	    return;
 	}  
@@ -181,6 +184,7 @@ public class FullscreenActivity extends Activity {
 			mSystemUiHider.hide();
 		}
 	};
+	
 
 	/**
 	 * Schedules a call to hide() in [delay] milliseconds, canceling any

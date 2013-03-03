@@ -10,6 +10,7 @@ import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -160,7 +161,11 @@ public class FullscreenActivity extends Activity {
 	View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent motionEvent) {
-			cam = Camera.open();
+			try{
+				cam = Camera.open();
+			} catch(Exception e){
+				Log.i(TAG, e.getMessage());
+			}
 			CameraSurface contentView = (CameraSurface)findViewById(R.id.fullscreen_content);
 			try {
 				cam.setPreviewDisplay(contentView.getHolder());

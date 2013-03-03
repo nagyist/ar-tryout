@@ -56,6 +56,7 @@ public class FullscreenActivity extends Activity {
 		setContentView(R.layout.activity_fullscreen);
 
 		final View controlsView = findViewById(R.id.fullscreen_content_controls);
+		final View buttonView = findViewById(R.id.dummy_button);
 		final View contentView = findViewById(R.id.fullscreen_content);
 
 		// Set up an instance of SystemUiHider to control the system UI for
@@ -124,17 +125,7 @@ public class FullscreenActivity extends Activity {
 		//TODO: handle no-camera behavior and exceptions.
 		
 		
-		cam = Camera.open();
-		
-		CameraSurface CamSurface = (CameraSurface) contentView;
-		
-		try {
-			cam.setPreviewDisplay(CamSurface.getHolder());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();			
-		}
-		cam.startPreview();
+
 		
 	}
 	public void onBackPressed() {

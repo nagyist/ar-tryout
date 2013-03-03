@@ -1,5 +1,7 @@
 package cz.derpcorp.ar_tryout;
 
+import java.io.IOException;
+
 import cz.derpcorp.ar_tryout.util.SystemUiHider;
 
 import android.annotation.TargetApi;
@@ -45,6 +47,7 @@ public class FullscreenActivity extends Activity {
 	 * The instance of the {@link SystemUiHider} for this activity.
 	 */
 	private SystemUiHider mSystemUiHider;
+	private Camera cam;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,10 +123,25 @@ public class FullscreenActivity extends Activity {
 		
 		//TODO: handle no-camera behavior and exceptions.
 		
-		Camera cam;
+		
 		cam = Camera.open();
 		
+		CameraSurface CamSurface = (CameraSurface) contentView;
+		
+		try {
+			cam.setPreviewDisplay(CamSurface.getHolder());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+		cam.startPreview();
+		
 	}
+	public void onBackPressed() {
+	    cam.release();
+	    finish();
+	    return;
+	}  
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {

@@ -25,7 +25,7 @@ public class FullscreenActivity extends Activity {
 	/**
 	 * constant TAG for Logging
 	 */
-	private static final String TAG = "FulscreenActivity";
+	private static final String TAG = "FullscreenActivity";
 	/**
 	 * Whether or not the system UI should be auto-hidden after
 	 * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -130,8 +130,6 @@ public class FullscreenActivity extends Activity {
 		
 		//TODO: handle no-camera behavior and exceptions.
 		
-		
-
 		
 	}
 	
